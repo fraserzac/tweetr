@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 before_action :check_if_logged_in, :only => [:edit, :edit]
+before_action :check_if_admin, :only => [:index]
+
+  def index
+    @user = User.new
+  end
 	
 	def new
 		@user = User.new
@@ -20,7 +25,13 @@ before_action :check_if_logged_in, :only => [:edit, :edit]
 
   private
   def user_params
-    params.require(:tweetr).permit(:email, :name, :password)
+    params.require(:user).permit(:email, :name, :password)
   end
 end
+
+
+
+
+
+
 
