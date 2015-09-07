@@ -10,7 +10,7 @@ before_action :check_if_logged_in, :only => [:edit, :edit]
     if @user.save # Check if the user is valid (per the validations in the model)
       redirect_to root_path
   	  else
-    	  render :new
+    	render :new
     	end
   	end
 
@@ -20,7 +20,7 @@ before_action :check_if_logged_in, :only => [:edit, :edit]
 
   private
   def user_params
-    params.require(:user).permit(:email, :name, :password)
+    params.require(:tweetr).permit(:email, :name, :password)
   end
 end
 

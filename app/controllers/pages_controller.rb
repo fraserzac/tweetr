@@ -11,12 +11,17 @@ class PagesController < ApplicationController
   	
   	def create
   		@post = Post.create post_params
+      @current.user.post << @post
   		redirect_to home_path
   	end
 
+     def show
+      @post = Post.find params[:id]
+    end
+
   	 private
  	 def post_params
-    params.require(:tweetr).permit(:email, :name, :password)
+    params.require(:posts).permit(:input)
   end
 
   end
