@@ -1,0 +1,11 @@
+
+<% @posts.each do |post| %>
+
+ <div class="post" id="post-<%= post.id %>">
+      <p><%= post.user.name.capitalize %> posted this: </p>
+      <p><%= post.content %></p>
+ 
+ </div>
+
+  <% end %>
+</div>
