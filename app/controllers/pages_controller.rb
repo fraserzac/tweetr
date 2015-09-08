@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-     def new 
+    def new 
       @post = User.new
     end
 
@@ -15,10 +15,6 @@ class PagesController < ApplicationController
       @post = Post.create post_params
       @current.user.post << @post
       redirect_to home_path
-    end
-
-    def show
-      @post = Post.find params[:id]
     end
 
     private

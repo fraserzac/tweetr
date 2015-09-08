@@ -1,0 +1,10 @@
+<h2>Post away</h2>
+
+<%= form_for @post do |f| %>
+  <p>
+    <%= f.label :content %>
+    <%= f.text_field :content, :required => true %>
+  </p>
+  <%= f.submit %>
+<% end %>
+
