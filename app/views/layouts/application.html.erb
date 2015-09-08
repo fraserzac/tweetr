@@ -13,6 +13,7 @@
   <h1>Tweetr</h1>
   </div>
 
+  <div class="container">
   <%= link_to 'Home', '/' %>
 	<% if @current_user.present? %>
     	<%= link_to "Logout #{ @current_user.name }", login_path, :method => 'delete', :data => { :confirm => 'Are you sure you wish to logout?' } %>
@@ -27,6 +28,8 @@
 
 
 <%= yield %>
+</div>
+
 
 </body>
 </html>
