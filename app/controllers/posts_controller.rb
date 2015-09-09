@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
 
 	def index
+    check_if_logged_in
 		@posts = Post.order( :created_at ).reverse_order
 	end
 
 	def new
 		check_if_logged_in
-      	@post = Post.new
+    @post = Post.new
 	end
 
 	def show
