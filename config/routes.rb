@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   root :to => 'posts#new'
   resources :users, :pages, :posts
 
@@ -8,7 +9,8 @@ Rails.application.routes.draw do
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
-  get '/post' => 'session#post'
+  get '/post' => 'session#create'
+  get '/account' => 'pages#create'
 
 
 end
