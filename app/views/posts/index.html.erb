@@ -1,13 +1,24 @@
 
+<%= form_for @posts.new do |f| %>
+  	<p>
+    	<%= f.label :content %>
+    	<%= f.text_field :content, :required => true %>
+  	</p>
+  	<%= f.submit %>
+<% end %>
+
 <% @posts.each do |post| %>
 
  <div class="post" id="post-<%= post.id %>">
       <p><%= post.user.name.capitalize %> posted this: </p>
       <p><%= post.content %></p>
       <% unless @current_user.following.include?(post.user) %>
-      	<%= link_to "Follow #{post.user.name.capitalize}", follow_path(post.user.id) %>
+      	<%= link_to "Follow: #{post.user.name.capitalize}", follow_path(post.user.id) %>
       <% else %>
-		<%= link_to "Unfollow #{post.user.name.capitalize}", unfollow_path(post.user.id) %>
+		    <%= link_to "Unfollow: #{post.user.name.capitalize}", unfollow_path(post.user.id) %>
+        <%= link_to "Delete Post" %>
+        <%= link_to "Edit Post" %>
+
       <% end %>
  </div>
 

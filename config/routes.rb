@@ -16,5 +16,4 @@ Rails.application.routes.draw do
   get '/post' => 'session#create'
   get '/account' => 'pages#create'
 
-
 end
