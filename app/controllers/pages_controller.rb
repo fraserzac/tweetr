@@ -11,7 +11,7 @@ class PagesController < ApplicationController
       redirect_to login_path
     end
 
-    def create
+    def create #create post and append to the home screen
       @post = Post.create post_params
       @current.user.post << @post
       redirect_to home_path

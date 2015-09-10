@@ -1,8 +1,8 @@
 == README
 
-This is the newest version of twitter all ready to go on to the interwebs. The best way to get started is to jog on over to this link here: https://guarded-anchorage-2771.herokuapp.com/
+This is the newest version of twitter all ready to go on to the interwebs. Here is the Heroku link here: https://guarded-anchorage-2771.herokuapp.com/
 
-once you have logged in or created an account you can see all the posts on the whole platform. You are able 
+Once you have logged in or created an account you can see all the posts on the whole platform. You are able post content, edit and delete you own posts. Follow and unfollow other users.  
 
 Things you may want to cover:
 
