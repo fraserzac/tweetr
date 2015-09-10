@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   delete '/login' => 'session#destroy'
   get '/post' => 'session#create'
   get '/account' => 'pages#create'
-  get '/edit' => 'post#edit', :as => 'post_edit'
+  get '/edit/:id' => 'posts#edit', :as => 'post_edit'
+  get '/delete/:id' => 'posts#destroy', :as => 'post_destroy'
 
 end

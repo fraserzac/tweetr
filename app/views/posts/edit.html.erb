@@ -1,0 +1,11 @@
+<h1>Edit Post</h1>
+
+<%= form_for @post do |f| %>
+  	<p>
+      <div class="main_post">
+    	   <%= f.label :content %>
+    	   <%= f.text_field :content, :required => true %>
+  	     <%= f.submit %>
+      </div>
+<% end %>
+

@@ -11,8 +11,24 @@ class PostsController < ApplicationController
 	end
 
 	def show
-    response = Posts.find params[:id]
+    response = Post.find params[:id]
     end
+
+  def edit
+    @post = Post.find params[:id]
+  end
+
+  def update
+    post = Post.find params[:id]
+    post.update post_params
+    redirect_to posts_path
+  end
+
+  def destroy
+    post = Post.find params[:id]
+    post.destroy
+    redirect_to posts_path
+  end
 
   def create
     @post = Post.new post_params
@@ -26,12 +42,6 @@ class PostsController < ApplicationController
 
   def check_if_logged_in
     redirect_to root_path unless @current_user.present?
-  end
-
-  def destroy
-    @post = Post.find params[:id]
-    @post = post.destroy
-      redirect_to posts_path
   end
 
   private

@@ -1,10 +1,11 @@
 
 <%= form_for @posts.new do |f| %>
   	<p>
-    	<%= f.label :content %>
-    	<%= f.text_field :content, :required => true %>
-  	</p>
-  	<%= f.submit %>
+      <div class="main_post">
+    	   <%= f.label :content %>
+    	   <%= f.text_field :content, :required => true %>
+  	     <%= f.submit %>
+      </div>
 <% end %>
 
 <% @posts.each do |post| %>
@@ -12,16 +13,16 @@
 <form>
 <div class="form-group">
  <div class="post" id="post-<%= post.id %>">
-      <p><%= post.user.name.capitalize %> posted this: </p>
+      <p><%= post.user.name.capitalize %>: </p>
       <p><%= post.content %></p>
       <% unless @current_user.following.include?(post.user) %>
-      	<%= link_to "Follow: #{post.user.name.capitalize}", follow_path(post.user.id) %>
-         <%= link_to "Delete Post" %>
-        <%= link_to "Edit Post" %>
+        <div class="post_text">
+      	<%= link_to "Follow: #{post.user.name.capitalize} |", follow_path(post.user.id) %>
+         <%= link_to "Delete Post |", post_destroy_path(post) %>
+        <%= link_to "Edit Post", post_edit_path(post) %>
+        </div>
       <% else %>
 		    <%= link_to "Unfollow: #{post.user.name.capitalize}", unfollow_path(post.user.id) %>
-
-  <span class="glyphicon glyphicon-wrench"></span>
 
       <% end %>
  </div>
