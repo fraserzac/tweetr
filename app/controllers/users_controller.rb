@@ -19,6 +19,11 @@ before_action :check_if_admin, :only => [:index]
     	end
   	end
 
+  def edit
+    @post = Post.find params[:id]
+  end
+
+
   def followed
     check_if_logged_in
     @followed = @current_user.active_relationships

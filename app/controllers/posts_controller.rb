@@ -11,28 +11,28 @@ class PostsController < ApplicationController
 	end
 
 	def show
-      	response = Posts.find params[:id]
+    response = Posts.find params[:id]
     end
 
-    def create
-      @post = Post.new post_params
-      @post.user_id = @current_user.id 
-      if @post.save # Check if the user is valid (per the validations in the model)
+  def create
+    @post = Post.new post_params
+    @post.user_id = @current_user.id 
+    if @post.save # Check if the user is valid (per the validations in the model)
         redirect_to posts_path
-  	  else
+  	else
         render :new
-      end
-  	end
+    end
+  end
 
-   def check_if_logged_in
+  def check_if_logged_in
     redirect_to root_path unless @current_user.present?
-    end
+  end
 
-    def destroy
-      post = Post.find params[:id]
-      post = post.destroy
+  def destroy
+    @post = Post.find params[:id]
+    @post = post.destroy
       redirect_to posts_path
-    end
+  end
 
   private
   def post_params

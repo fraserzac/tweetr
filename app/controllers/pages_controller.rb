@@ -10,7 +10,7 @@ class PagesController < ApplicationController
     else
       redirect_to login_path
     end
-    
+
     def create
       @post = Post.create post_params
       @current.user.post << @post

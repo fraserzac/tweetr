@@ -15,7 +15,7 @@ class SessionController < ApplicationController
 	  		redirect_to posts_path
 	  	else
 	  		redirect_to login_path
-			end
+		end
 	end
 
 	def destroy

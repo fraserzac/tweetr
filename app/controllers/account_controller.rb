@@ -1,7 +1,7 @@
 class AccountController < ApplicationController
  
   before_action :check_if_logged_in, :only => [:edit, :edit]
-before_action :check_if_admin, :only => [:index]
+  before_action :check_if_admin, :only => [:index]
 
   def index
     @user = User.new
@@ -20,9 +20,9 @@ before_action :check_if_admin, :only => [:index]
     	end
   	end
 
-   def check_if_logged_in
+  def check_if_logged_in
     redirect_to root_path unless @current_user.present?
-  	end
+  end
 
   private
   def user_params
