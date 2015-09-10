@@ -18,8 +18,10 @@
       <% unless @current_user.following.include?(post.user) %>
         <div class="post_text">
       	<%= link_to "Follow: #{post.user.name.capitalize} |", follow_path(post.user.id) %>
-         <%= link_to "Delete Post |", post_destroy_path(post) %>
-        <%= link_to "Edit Post", post_edit_path(post) %>
+        <% if post.user.name == @current_user.name %>
+          <%= link_to "Delete Post |", post_destroy_path(post) %>
+          <%= link_to "Edit Post", post_edit_path(post) %>
+        <% end %>
         </div>
       <% else %>
 		    <%= link_to "Unfollow: #{post.user.name.capitalize}", unfollow_path(post.user.id) %>
